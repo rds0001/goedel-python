@@ -1,0 +1,1781 @@
+{
+  "catalogue_version": "0.2.0",
+  "definitions": [
+    {
+      "definition": "A specified family of axiom instances generated from formula or term parameters.",
+      "id": "axiom_schema",
+      "name": "Axiom schema",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Definition int.6: a parameterized induction family; general schema convention",
+          "source_id": "olp_incompleteness"
+        }
+      ],
+      "topic_ids": [
+        "theories"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A finite exploration of stated proof rules under explicit budgets. Exhaustion does not establish unprovability.",
+      "id": "bounded_search",
+      "name": "Bounded proof search",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 4 and 6; library operational distinction",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "undecidability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Replace free occurrences of a variable; rename conflicting binders to preserve the binding of every other occurrence.",
+      "id": "capture_avoiding_substitution",
+      "name": "Capture-avoiding substitution",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.4 and Section 5.1, rebinding during substitution",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "syntax"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "classical_first_order",
+      "definition": "The theory uses classical first-order logic with equality and an effective proof calculus when effectiveness is required. This is not inferred from a user-chosen theory name.",
+      "id": "classical_first_order",
+      "name": "Classical first-order setting",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 2.1-2.5",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "An extension adding no new theorems formulated in the original language.",
+      "id": "conservative_extension",
+      "name": "Conservative extension",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.7, Theorem 27A and 27D, no additional original-language consequences",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "consistent",
+      "definition": "A classical theory T is consistent when it has no derivation of a contradiction, equivalently no sentence A for which it derives both A and not A. An input flag declaring this property is an assumption; software tests cannot certify it.",
+      "id": "consistency",
+      "name": "Syntactic consistency",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction and Section 2",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Con_Pr := not Pr(nu(code(bottom))); the chosen contradiction and provability predicate must be fixed.",
+      "id": "consistency_formula",
+      "name": "Predicate-specific consistency formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction; Section 2.1 consistency formulations",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For each sentence A: if T proves A then T proves Pr(nu(code(A))).",
+      "id": "d1",
+      "name": "D1 derivability condition",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction, D1",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "topic_ids": [
+        "provability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For every sentence pair A,B: T proves Pr(nu(code(A->B))) -> (Pr(nu(code(A)))->Pr(nu(code(B)))).",
+      "id": "d2",
+      "name": "D2 derivability condition",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction, D2",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "topic_ids": [
+        "provability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For every sentence A: T proves Pr(nu(code(A))) -> Pr(nu(code(Pr(nu(code(A)))))).",
+      "id": "d3",
+      "name": "D3 derivability condition",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction, D3",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "topic_ids": [
+        "provability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "decidable_axiom_set",
+      "definition": "The particular axiom set of T has an algorithm that halts and decides membership for every candidate sentence. This condition concerns the supplied presentation, not decidability of all theorems.",
+      "id": "decidable_axiom_set",
+      "name": "Decidable axiom presentation",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 4, printed p.10: recursive axiom sets are expressible; DecidableSet on p.9 is only proposition-level decidability",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A formula built from arithmetic atoms using connectives and bounded quantifiers. In each bound Qx<t, the term t does not contain x; bounded syntax is an abbreviation with a stated expansion.",
+      "id": "delta_zero",
+      "name": "Bounded arithmetic formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.3, Theorem 33I, pp.210-211; library syntactic bounded-formula convention",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "diagonal_lemma_available",
+      "definition": "For every arithmetic formula theta(x) with at most x free there is a sentence D such that T proves D iff theta(code(D)), using the same syntax coding as its provability predicate.",
+      "id": "diagonal_lemma_available",
+      "name": "Fixed-point lemma available",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 6: fixed-point theorem",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "effective_axiomatized",
+      "definition": "An effective axiom presentation enumerates axioms by an algorithm. Decidable axiom membership is a stronger presentation condition. The associated proof relation must encode any required enumeration witnesses; different presentations can produce different internal provability predicates.",
+      "id": "effective_axiomatization",
+      "name": "Effective axiomatization",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 4: decidable axioms and representability requirements",
+          "source_id": "oconnor_2006"
+        },
+        {
+          "locator": "Section 3.4, catalog item 21",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "effective_language",
+      "definition": "Syntax has a computable coding with decidable well-formedness, and the chosen classical calculus supports effective enumeration of finite derivations from an effective axiom presentation.",
+      "id": "effective_language",
+      "name": "Effective syntax and proof enumeration",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.4, catalog item 21",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A theory is essentially undecidable if every consistent extension in its language has an undecidable theorem set.",
+      "id": "essential_undecidability",
+      "name": "Essential undecidability",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, Theorem 35C, hereditary undecidability for consistent extensions",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "undecidability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "extends_pa",
+      "definition": "Every axiom of first-order PA is provable in T in the same arithmetic language. This is an explicit mathematical assumption, not inferred from the label PA.",
+      "id": "extends_pa",
+      "name": "Extension of PA",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 2.8 and 6.1",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A nonempty finite carrier with total functions, constants and relations interpreting a fixed signature.",
+      "id": "finite_structure",
+      "name": "Finite structure",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "truth"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For one-variable A(x), a sentence G with T proving G iff A(nu(code(G))); this is provable equivalence, not literal text equality.",
+      "id": "fixed_point_sentence",
+      "name": "Sentence fixed point",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, fixed-point construction",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "diagonalization"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Con_Pr(T) abbreviates not Pr_T(code(0 = S0)) for the explicitly fixed provability predicate. Its intended interpretation and unprovability depend on that representation. No finite collection of successful proof checks establishes Con_Pr(T).",
+      "id": "formal_consistency",
+      "name": "Consistency sentence relative to a predicate",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.7, printed pp.268-269",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "An atomic relation or equality, or an expression built with logical connectives and quantifiers.",
+      "id": "formula",
+      "name": "Formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "syntax"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "The least normal modal logic extending classical propositional logic by K and Box(Box A->A)->Box A, closed under modus ponens, necessitation and uniform substitution.",
+      "id": "gl_logic",
+      "name": "Goedel-Loeb modal logic",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3, axiomatic calculus K plus GL and necessitation",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ],
+      "topic_ids": [
+        "provability_logic"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "hbl_conditions",
+      "definition": "For one fixed arithmetic formula Pr_T(x), and all arithmetic sentences A and B: D1, if T proves A then T proves Pr_T(code(A)); D2, T proves Pr_T(code(A -> B)) -> (Pr_T(code(A)) -> Pr_T(code(B))); D3, T proves Pr_T(code(A)) -> Pr_T(code(Pr_T(code(A)))). Numerals are implicit inside each coded formula. D1 is a metatheoretic rule; D2 and D3 are internal schemes.",
+      "id": "hbl_conditions",
+      "name": "Hilbert-Bernays-Loeb conditions",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.7, printed p.267, derivability conditions",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A nonempty set of worlds with a binary accessibility relation; valuations turn a frame into a model.",
+      "id": "kripke_frame",
+      "name": "Kripke frame",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.1, relational models and nonempty frames",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ],
+      "topic_ids": [
+        "provability_logic"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Box A holds at a world iff A holds at every accessible successor, including vacuous truth when there are none.",
+      "id": "modal_box",
+      "name": "Box semantics",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.1, recursive forcing relation",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ],
+      "topic_ids": [
+        "provability_logic"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "An injective assignment of natural numbers to finite syntactic presentations. Distinct presentations may denote the same formula.",
+      "id": "numbering_presentation",
+      "name": "Presentation-sensitive numbering",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section art.1; presentation sensitivity is a library convention, not a claim about its specific coding",
+          "source_id": "olp_arithmetization"
+        }
+      ],
+      "topic_ids": [
+        "coding"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A closed arithmetic term denoting a specified natural number; this package documents an exact binary Horner convention.",
+      "id": "numeral",
+      "name": "Numeral term",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.8, natToTerm; binary Horner is the library convention replacing unary notation",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "coding"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For a total function f:N^k->N, R strongly represents f numeralwise in T when every standard input tuple a has T proving forall y(R(nu(a),y) iff y=nu(f(a))).",
+      "id": "numeralwise_function_representation",
+      "name": "Numeralwise function representation",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 3.3 and 3.6",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "diagonalization"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Object formulas belong to a theory language. Metatheoretic assertions about derivability or consistency are distinct from object formulas arithmetizing them.",
+      "id": "object_meta_level",
+      "name": "Object and metatheory levels",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 2.4 and 3.7",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "omega_consistent",
+      "definition": "There is no arithmetic formula phi(x), with x its only free variable, for which T proves exists x phi(x) and proves not phi(n) for every standard numeral n. This is a metatheoretic quantification over all standard numerals, not a bounded test.",
+      "id": "omega_consistency",
+      "name": "Omega-consistency",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Definition 2.1, with phi replaced by its negation",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "In this catalogue 1-consistency means omega-consistency restricted to bounded arithmetic formulas. Over PA this is equivalent to Sigma-1 soundness. Authors' conventions differ; no unqualified one_consistent flag is accepted as a substitute for a theorem's sigma1_sound requirement.",
+      "id": "one_consistency",
+      "name": "Convention for 1-consistency",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction: 1-consistency versus omega-consistency",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Here one-consistency for a Q-extending arithmetic theory means no false Sigma1 sentence is provable. The convention is explicit.",
+      "id": "one_consistency_convention",
+      "name": "One-consistency convention",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction and Definition 2.1; Sigma1-soundness is explicitly the library convention for one-consistency",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "topic_ids": [
+        "incompleteness_first"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For every arithmetic A(x,parameters): (A(0) and forall x(A(x)->A(Sx))) -> forall x A(x), with parameter closure.",
+      "id": "pa_induction",
+      "name": "PA induction schema",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Definition int.6, parameter closure",
+          "source_id": "olp_incompleteness"
+        },
+        {
+          "locator": "Section 2.8, displayed PA induction schema",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "theories"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Use the same arithmetic language as Q. PA has the six successor/addition/multiplication axioms of Q and the universal closure of every induction instance (phi(0) and forall x (phi(x) -> phi(Sx))) -> forall x phi(x), with parameters allowed. PA proves the predecessor axiom. It is first-order PA, not full second-order arithmetic.",
+      "id": "peano_pa",
+      "name": "First-order Peano arithmetic PA",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.8: PA axioms and induction scheme",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Here a syntactic Pi1 formula is a universal prefix followed by a bounded arithmetic matrix. Equivalence over PA to that form requires a separate justification.",
+      "id": "pi_one",
+      "name": "Pi-one arithmetic formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, arithmetical hierarchy, pp.242-243; library syntactic normal-form convention",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Obtained from zero, successor and projections by composition and primitive recursion.",
+      "id": "primitive_recursive",
+      "name": "Primitive recursive function",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 5, constructors of PrimRec",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "computability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Proof_T(p,x) arithmetically represents a specified proof relation, with fixed numbering, axioms and inference rules. It concerns arbitrary finite proofs, not only those below an implementation budget.",
+      "id": "proof_relation",
+      "name": "Arithmetized proof relation",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections art.6-art.8; Propositions art.17, art.24, art.28",
+          "source_id": "olp_arithmetization"
+        }
+      ],
+      "topic_ids": [
+        "provability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Pr_T(x) := exists p Proof_T(p,x); its representation is part of its identity.",
+      "id": "provability_formula",
+      "name": "Provability formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction and Section 2.1",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "topic_ids": [
+        "provability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "provability_predicate_fixed",
+      "definition": "A single arithmetic formula Pr_T and a single coding convention have been selected and are used consistently in HBL conditions and the displayed consistency/reflection sentence.",
+      "id": "provability_predicate_fixed",
+      "name": "Fixed provability representation",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.7, printed pp.267-269",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Robinson Q in the signature {0,S,+,*} has seven axioms: successor injectivity and nonzero values, predecessor for nonzero elements, and the four recursion equations for addition and multiplication. It has no induction schema.",
+      "id": "q_theory",
+      "name": "Robinson arithmetic Q",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Definition int.5: Q1-Q7 in the reduct without the separately definable order symbol; Q8 is a definition",
+          "source_id": "olp_incompleteness"
+        }
+      ],
+      "topic_ids": [
+        "theories"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A set for which an effective procedure lists exactly its members; nonmembership need not be decidable.",
+      "id": "recursively_enumerable",
+      "name": "Computably enumerable set",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, Theorem 35E and Lemma 35G",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "computability"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A conditional implication Con(S)->Con(T), established in a stated metatheory; it does not assert either antecedent or consequent outright.",
+      "id": "relative_consistency",
+      "name": "Relative consistency",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.7, interpretation and model translation; conditional metatheoretic convention",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Classical first-order arithmetic with equality, 0, S, + and multiplication. Its seven universally closed axioms are: Sx != 0; Sx = Sy -> x = y; x != 0 -> exists y (x = Sy); x + 0 = x; x + Sy = S(x + y); x * 0 = 0; x * Sy = (x * y) + x. There is no induction scheme. This profile is descriptive; the package does not enumerate its axioms or decide its consistency.",
+      "id": "robinson_q",
+      "name": "Robinson arithmetic Q",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 7.2: Q versus NN",
+          "source_id": "oconnor_2006"
+        },
+        {
+          "locator": "Section 2.8: the six arithmetic axioms",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "M,s |= A relates an interpreted structure M, a variable assignment s and a formula A.",
+      "id": "satisfaction",
+      "name": "Satisfaction",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "truth"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "For sentences Gamma and A, Gamma |= A means every structure satisfying Gamma satisfies A. For open formulas the local consequence convention additionally quantifies over the same variable assignment.",
+      "id": "semantic_entailment",
+      "name": "Semantic entailment",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Definition syn.64 (sentences); local open-formula extension explicitly declared",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "truth"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A formula whose set of free variables is empty.",
+      "id": "sentence",
+      "name": "Sentence",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "syntax"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "sigma1_sound",
+      "definition": "Every Sigma-1 sentence proved by T is true in the standard natural numbers. Sigma-1 means an existential block over a formula with only bounded quantifiers, allowing the usual arithmetic equivalents. For the arithmetic theories used here this entails consistency.",
+      "id": "sigma1_soundness",
+      "name": "Sigma-1 soundness",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction: Sigma-1 completeness and 1-consistency",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "An existential prefix followed by a bounded arithmetic matrix; PA-equivalence to this form must be justified separately.",
+      "id": "sigma_one",
+      "name": "Sigma-one arithmetic formula",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 5, existential unbounded quantifiers in represented arithmetic relations; library syntactic normal-form convention",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Symbols with fixed arities; logical equality is distinguished from nonlogical predicates.",
+      "id": "signature",
+      "name": "Formal signature",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "syntax"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "standard_arithmetization",
+      "definition": "A fixed effective coding of arithmetic syntax and finite proofs with a correctly represented proof relation and substitution operation in PA, and its usual Sigma-1 provability formula Pr_T. Catalogue claims use this mathematical convention. The package's finite JSON byte numbering is not asserted to supply a PA representation of its native checker.",
+      "id": "standard_arithmetization",
+      "name": "Standard proof arithmetization",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Sections 5-6: coding and representability",
+          "source_id": "oconnor_2006"
+        },
+        {
+          "locator": "Section 3.7, printed pp.266-267",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "standard_naturals",
+      "definition": "The semantic structure is the standard natural numbers with their usual arithmetic operations. This stipulates an interpretation; the library does not decide truth in it.",
+      "id": "standard_naturals",
+      "name": "Standard natural-number interpretation",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, printed p.236",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "context_flag": "syntactically_complete",
+      "definition": "For each closed sentence A in the language of T, T proves A or proves not A. With consistency, exactly one alternative holds. This does not mean that every formula is true in every model.",
+      "id": "syntactic_completeness",
+      "name": "Syntactic completeness",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.4, catalog item 21, and Section 3.5",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "A finite expression inductively formed from variables, constants and function applications.",
+      "id": "term",
+      "name": "Term",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ],
+      "topic_ids": [
+        "syntax"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "An interpretation specifies a definable nonempty domain and translations preserving logical rules, functions and equality, such that the target theory proves translations of source axioms.",
+      "id": "theory_interpretation",
+      "name": "Interpretation between theories",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 2.7",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "topic_ids": [
+        "metatheory"
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "definition": "Truth N |= A is evaluated in the intended structure of natural numbers from a metatheory. Derivability T |- A is the existence of a finite derivation from T. They are distinct notions; classical first-order semantic completeness of a calculus does not say that PA decides every sentence.",
+      "id": "truth_vs_provability",
+      "name": "Truth and provability",
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, printed pp.234-236",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    }
+  ],
+  "relations": [
+    {
+      "conclusion": "godel_first_consistency",
+      "evidence": {
+        "note": "The fixed point is one ingredient; it alone does not prove the incompleteness claim. The edge records a documented prerequisite contribution; graph traversal is not theorem inference.",
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Introduction: Goedelian sentences and diagonal lemma",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "fixed_point_supports_godel",
+      "kind": "REQUIRES",
+      "premise": "diagonal_pa",
+      "requirements": [
+        "classical_first_order",
+        "extends_pa",
+        "standard_arithmetization",
+        "decidable_axiom_set",
+        "consistent"
+      ],
+      "role": "PROOF_DEPENDENCY"
+    },
+    {
+      "conclusion": "lob",
+      "evidence": {
+        "note": "HBL and the chosen predicate are additional indispensable hypotheses. The edge records a documented prerequisite contribution; graph traversal is not theorem inference.",
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Printed pp.116-117: theorem and proof",
+            "source_id": "lob_1955"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "fixed_point_supports_lob",
+      "kind": "REQUIRES",
+      "premise": "diagonal_pa",
+      "requirements": [
+        "classical_first_order",
+        "extends_pa",
+        "diagonal_lemma_available",
+        "provability_predicate_fixed",
+        "hbl_conditions"
+      ],
+      "role": "PROOF_DEPENDENCY"
+    },
+    {
+      "conclusion": "godel_second_hbl",
+      "evidence": {
+        "note": "Specialize the reflection sentence to contradiction and add consistency. The edge records a documented prerequisite contribution; graph traversal is not theorem inference.",
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.7, printed p.269: second incompleteness as a Loeb corollary",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "lob_supports_second",
+      "kind": "REQUIRES",
+      "premise": "lob",
+      "requirements": [
+        "classical_first_order",
+        "extends_pa",
+        "diagonal_lemma_available",
+        "provability_predicate_fixed",
+        "hbl_conditions",
+        "consistent"
+      ],
+      "role": "SPECIALIZATION_WITH_ADDITIONAL_ASSUMPTIONS"
+    },
+    {
+      "conclusion": "godel_first_omega",
+      "evidence": {
+        "note": "Adds a stronger hypothesis to obtain unrefutability; the first entry alone does not imply the second. The edge records a documented prerequisite contribution; graph traversal is not theorem inference.",
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Introduction and Definition 2.1",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "omega_strengthens_godel",
+      "kind": "REQUIRES",
+      "premise": "godel_first_consistency",
+      "requirements": [
+        "classical_first_order",
+        "extends_pa",
+        "standard_arithmetization",
+        "decidable_axiom_set",
+        "omega_consistent"
+      ],
+      "role": "HYPOTHESIS_REFINEMENT"
+    },
+    {
+      "conclusion": "truth_undecidable",
+      "evidence": {
+        "note": "Also uses arithmetic definability of decidable sets. The edge records a documented prerequisite contribution; graph traversal is not theorem inference.",
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.5, Corollary 35A",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "tarski_supports_undecidability",
+      "kind": "REQUIRES",
+      "premise": "tarski",
+      "requirements": [
+        "classical_first_order",
+        "standard_naturals",
+        "standard_arithmetization",
+        "effective_language"
+      ],
+      "role": "PROOF_DEPENDENCY"
+    }
+  ],
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Herbert B. Enderton"
+      ],
+      "edition": "Second edition",
+      "formal_replay_performed": false,
+      "id": "enderton_2001",
+      "inspected": "Sections 3.4, 3.5, 3.7 and 3.8; printed page numbers used below.",
+      "isbn": "0-12-238452-0",
+      "publisher": "Academic Press",
+      "title": "A Mathematical Introduction to Logic",
+      "url": "https://daiwz.net/course/logic/books/AMIL2edn.pdf",
+      "year": 2001
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Kurt Goedel"
+      ],
+      "doi": "10.1007/BF01700692",
+      "formal_replay_performed": false,
+      "id": "godel_1931",
+      "inspected": "Publisher metadata only; historical attribution, not the source of a claimed full-text audit.",
+      "journal": "Monatshefte fuer Mathematik und Physik",
+      "pages": "173-198",
+      "title": "Ueber formal unentscheidbare Saetze der Principia Mathematica und verwandter Systeme I",
+      "url": "https://doi.org/10.1007/BF01700692",
+      "volume": "38",
+      "year": 1931
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Taishi Kurahashi"
+      ],
+      "formal_replay_performed": false,
+      "id": "kurahashi_2020",
+      "inspected": "Introduction; Section 2.1, Definitions 2.3/2.5 and Proposition 2.4; distinct consistency formulations.",
+      "title": "A note on derivability conditions",
+      "url": "https://arxiv.org/pdf/1902.00895v3",
+      "version": "arXiv:1902.00895v3, 2020-04-30",
+      "year": 2020
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "M. H. Löb"
+      ],
+      "formal_replay_performed": false,
+      "id": "lob_1955",
+      "inspected": "Theorem on printed p.116 and argument on p.117.",
+      "issue": "2",
+      "journal": "The Journal of Symbolic Logic",
+      "pages": "115-118",
+      "title": "Solution of a Problem of Leon Henkin",
+      "url": "https://math.umd.edu/~laskow/Pubs/713/Lob.pdf",
+      "volume": "20",
+      "year": 1955
+    },
+    {
+      "accessed": "2026-11-05",
+      "article": "29",
+      "authors": [
+        "Marco Maggesi",
+        "Cosimo Perini Brogi"
+      ],
+      "doi": "10.1007/s10817-023-09677-z",
+      "formal_replay_performed": false,
+      "id": "maggesi_perini_brogi_2023",
+      "inspected": "Sections 2.1-2.2 and 3.1; finite transitive irreflexive frames. External reported formalization not replayed here.",
+      "journal": "Journal of Automated Reasoning",
+      "title": "Mechanising Goedel-Loeb Provability Logic in HOL Light",
+      "url": "https://link.springer.com/article/10.1007/s10817-023-09677-z",
+      "volume": "67",
+      "year": 2023
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Russell O'Connor"
+      ],
+      "formal_replay_performed": false,
+      "id": "oconnor_2006",
+      "inspected": "Sections 2.8, 4, 6, 6.1, 7.2 and 7.4. The paper reports a Coq proof; this package does not replay it.",
+      "title": "Essential Incompleteness of Arithmetic Verified by Coq",
+      "url": "https://arxiv.org/pdf/cs/0505034v2",
+      "version": "arXiv:cs/0505034v2, 2006-05-11",
+      "year": 2006
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Open Logic Project"
+      ],
+      "formal_replay_performed": false,
+      "id": "olp_arithmetization",
+      "inspected": "Introduction art.1; primitive-recursive coding and substitution. This is not a review of this library numbering.",
+      "title": "Arithmetization of Syntax",
+      "url": "https://builds.openlogicproject.org/content/incompleteness/arithmetization-syntax/arithmetization-syntax.pdf"
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Open Logic Project"
+      ],
+      "formal_replay_performed": false,
+      "id": "olp_incompleteness",
+      "inspected": "Definitions int.5 and int.6; seven arithmetic axioms plus the separately definable order symbol.",
+      "title": "Introduction to Incompleteness",
+      "url": "https://builds.openlogicproject.org/content/incompleteness/introduction/introduction.pdf",
+      "version": "rev 9620cc7, 2026-07-12"
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Open Logic Project"
+      ],
+      "formal_replay_performed": false,
+      "id": "olp_syntax",
+      "inspected": "Sections syn.1-syn.2 and definitions of satisfaction; no proof-assistant replay.",
+      "title": "Syntax and Semantics",
+      "url": "https://builds.openlogicproject.org/content/first-order-logic/syntax-and-semantics/syntax-and-semantics.pdf"
+    },
+    {
+      "accessed": "2026-11-05",
+      "authors": [
+        "Saeed Salehi"
+      ],
+      "formal_replay_performed": false,
+      "id": "salehi_2022_omega",
+      "inspected": "Introduction; Section 2, especially Definition 2.1.",
+      "title": "On Goedel's 'Much Weaker' Assumption",
+      "url": "https://arxiv.org/pdf/2209.07122v2",
+      "version": "arXiv:2209.07122v2, 2022-09-20",
+      "year": 2022
+    }
+  ],
+  "statements": [
+    {
+      "conclusion": "The theorem set of T is decidable.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "A theory in an effectively presented first-order language"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Completeness ensures termination; consistency ensures the positive and negative branches cannot both be correct."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.4, catalog item 21, printed p.233",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "complete_effective_decidable",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "This theorem supplies no completeness assumption for PA.",
+        "The library's bounded search is not the unbounded algorithm in this existence proof."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "consistent",
+        "effective_axiomatized",
+        "effective_language",
+        "syntactically_complete"
+      ],
+      "statement": "For a consistent, syntactically complete, effectively axiomatized theory T, an algorithm decides theoremhood by enumerating derivations until either A or not A appears.",
+      "title": "Complete effective theories are decidable",
+      "topic_ids": [
+        "computability",
+        "undecidability",
+        "theories"
+      ],
+      "variant": "Effective classical syntax and proof enumeration"
+    },
+    {
+      "conclusion": "A sentence fixed point exists for every such theta.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "The PA specialization retains one coding and captures no remaining free variables."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 6: fixed-point theorem; Section 6.1: passage to PA",
+            "source_id": "oconnor_2006"
+          },
+          {
+            "locator": "Section 3.5, fixed-point lemma, printed pp.234-235",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "diagonal_pa",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "No arithmetic fixed-point synthesis is implemented."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "extends_pa",
+        "standard_arithmetization"
+      ],
+      "statement": "For each arithmetic theta(x) with no other free variables, some arithmetic sentence D satisfies PA |- D <-> theta(code(D)). Every extension T of PA inherits this equivalence.",
+      "title": "Diagonal lemma over PA",
+      "topic_ids": [
+        "coding",
+        "diagonalization"
+      ],
+      "variant": "Sentence fixed point; conservative PA specialization"
+    },
+    {
+      "conclusion": "T does not prove its specified Goedel sentence G.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Consistency excludes a proof of G via its fixed-point equivalence and representability. No unrefutability conclusion is added."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Introduction: consistency versus independence for Goedelian sentences",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "godel_first_consistency",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "Consistency alone is not claimed to imply that T cannot prove not G.",
+        "This is not a transcription of Goedel's original system P."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "consistent",
+        "decidable_axiom_set",
+        "extends_pa",
+        "standard_arithmetization"
+      ],
+      "statement": "Let G be the usual Goedel sentence for the chosen Pr_T, with PA |- G <-> not Pr_T(code(G)). If T is consistent, T does not prove G.",
+      "title": "Goedel sentence: unprovability",
+      "topic_ids": [
+        "incompleteness_first",
+        "provability"
+      ],
+      "variant": "Modern PA specialization of the original fixed-point argument"
+    },
+    {
+      "conclusion": "The specified G is independent of T.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Ordinary consistency suffices for the first half; omega-consistency excludes the opposite half using all numeral instances."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Introduction and Definition 2.1",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "godel_first_omega",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "No finite sample of numeral instances establishes omega-consistency.",
+        "Rosser's construction is a different sentence."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "decidable_axiom_set",
+        "extends_pa",
+        "omega_consistent",
+        "standard_arithmetization"
+      ],
+      "statement": "For the same usual Goedel sentence G, omega-consistency of T implies that T proves neither G nor not G.",
+      "title": "Goedel sentence: omega-consistent independence",
+      "topic_ids": [
+        "incompleteness_first",
+        "metatheory"
+      ],
+      "variant": "Original-style hypothesis, modern PA presentation"
+    },
+    {
+      "conclusion": "The specified G is independent of T.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Sigma-1 soundness entails consistency and rules out the false Sigma-1 provability claim that would follow from not G."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Introduction: the 1-consistency improvement",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "godel_first_sigma1",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "Sigma-1 soundness is an external assumption; it is not a successful test result."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "decidable_axiom_set",
+        "extends_pa",
+        "sigma1_sound",
+        "standard_arithmetization"
+      ],
+      "statement": "For the usual Goedel sentence G and usual Sigma-1 Pr_T, Sigma-1 soundness of T implies that T proves neither G nor not G.",
+      "title": "Goedel sentence: Sigma-1-sound independence",
+      "topic_ids": [
+        "incompleteness_first",
+        "truth"
+      ],
+      "variant": "Weaker soundness assumption than omega-consistency"
+    },
+    {
+      "conclusion": "T does not prove the displayed predicate-specific consistency sentence.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Apply Loeb with contradiction: a proof of not Pr_T(contradiction) yields a proof of Pr_T(contradiction) -> contradiction, hence contradiction."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.7, printed pp.267-269: conditions, second theorem and Loeb corollary",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "godel_second_hbl",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "An arbitrary formula informally called consistency is not covered.",
+        "HBL conditions are assumptions about this exact predicate."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "consistent",
+        "diagonal_lemma_available",
+        "extends_pa",
+        "hbl_conditions",
+        "provability_predicate_fixed"
+      ],
+      "statement": "If T is consistent and its fixed Pr_T satisfies D1, D2 and D3, then T does not prove Con_Pr(T), where Con_Pr(T) is not Pr_T(code(0 = S0)).",
+      "title": "Second incompleteness under HBL",
+      "topic_ids": [
+        "incompleteness_second",
+        "provability",
+        "metatheory"
+      ],
+      "variant": "Predicate-specific consistency sentence"
+    },
+    {
+      "conclusion": "Every proved local reflection instance Pr_T(code(A)) -> A entails T |- A.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "A fixed point for Pr_T(code(D)) -> A, followed by D1-D3, yields the implication. Consistency is not needed for this conditional theorem."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Printed pp.116-117: theorem and proof",
+            "source_id": "lob_1955"
+          },
+          {
+            "locator": "Section 3.7, printed p.269",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "lob",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "No claim that T proves every reflection instance.",
+        "No modal-logic completeness or proof-assistant verification is supplied."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "diagonal_lemma_available",
+        "extends_pa",
+        "hbl_conditions",
+        "provability_predicate_fixed"
+      ],
+      "statement": "For any arithmetic sentence A, if T proves Pr_T(code(A)) -> A, then T proves A, for the fixed predicate satisfying D1, D2 and D3.",
+      "title": "Loeb's theorem",
+      "topic_ids": [
+        "provability_logic",
+        "provability"
+      ],
+      "variant": "HBL and diagonalization form"
+    },
+    {
+      "conclusion": "There is a Rosser sentence independent of T; T is syntactically incomplete.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "T in the first-order language of arithmetic"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "This is a conservative PA specialization. In O'Connor, DecidableSet is proposition-level excluded middle, not an algorithm. Our recursive axiom-membership hypothesis is stronger and makes the axiom predicate representable in PA. NN is not identified with Q."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 4: precise formalized hypotheses; Sections 6.1 and 7.2: PA and the distinction between NN and Q",
+            "source_id": "oconnor_2006"
+          },
+          {
+            "locator": "Introduction: Rosser's consistency-only refinement",
+            "source_id": "salehi_2022_omega"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "rosser",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "R is not identified with the ordinary Goedel sentence G.",
+        "No local replay of the reported Coq proof was performed."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "consistent",
+        "decidable_axiom_set",
+        "extends_pa",
+        "standard_arithmetization"
+      ],
+      "statement": "Every consistent T extending PA with the stated decidable axiom presentation has a Rosser sentence R such that T proves neither R nor not R.",
+      "title": "Rosser incompleteness",
+      "topic_ids": [
+        "incompleteness_first",
+        "undecidability"
+      ],
+      "variant": "Consistent effectively presented PA extension; decidable-axiom presentation"
+    },
+    {
+      "conclusion": "Full arithmetic truth is not arithmetically definable in the standard natural numbers.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "Arithmetic interpreted in the standard natural numbers"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "Apply a diagonal fixed point to not Tr(x) and use the standard interpretation. This is a semantic undefinability statement."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.5, Tarski's theorem, printed p.236",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "tarski",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "Truth predicates for restricted fragments are not excluded.",
+        "A richer metalanguage may define truth for the object language."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "standard_arithmetization",
+        "standard_naturals"
+      ],
+      "statement": "No arithmetic formula Tr(x) defines, in the standard natural numbers, exactly the codes of all true arithmetic sentences.",
+      "title": "Tarski undefinability of arithmetic truth",
+      "topic_ids": [
+        "truth",
+        "metatheory"
+      ],
+      "variant": "Semantic standard-natural-number formulation"
+    },
+    {
+      "conclusion": "The set of codes of true arithmetic sentences is not decidable.",
+      "context": {
+        "logic": "Classical first-order logic with equality",
+        "metatheory": "Ordinary classical metamathematics; declared assumptions are not certified by this package",
+        "provability": "Specified per statement; no automatic choice from a theory name",
+        "theory": "Arithmetic interpreted in the standard natural numbers"
+      },
+      "evidence": {
+        "kind": "LITERATURE_RESULT",
+        "review": {
+          "formal_replay_performed": false,
+          "independent_review": "Statement, hypotheses and argument independently checked against the cited sources; no formal kernel replay.",
+          "note": "A decidable set would be arithmetically definable, contradicting Tarski's theorem."
+        },
+        "review_status": "REVIEWED",
+        "source_refs": [
+          {
+            "locator": "Section 3.5, Corollary 35A, printed p.236; Section 3.8 removes exponentiation as a primitive symbol",
+            "source_id": "enderton_2001"
+          }
+        ],
+        "verification_status": "INDEPENDENTLY_CHECKED"
+      },
+      "id": "truth_undecidable",
+      "limitations": [
+        "Applicability is conditional on the user's declarations, not a verification of those declarations.",
+        "This catalogue entry is not a machine-checked proof.",
+        "This does not assert that every individual arithmetic instance is difficult.",
+        "Bounded search failure gives no instance of unprovability."
+      ],
+      "requirements": [
+        "classical_first_order",
+        "effective_language",
+        "standard_arithmetization",
+        "standard_naturals"
+      ],
+      "statement": "No algorithm decides, for every arithmetic sentence, whether that sentence is true in the standard natural numbers.",
+      "title": "Undecidability of true arithmetic",
+      "topic_ids": [
+        "truth",
+        "undecidability"
+      ],
+      "variant": "Theorem set of the standard arithmetic structure"
+    }
+  ],
+  "topics": [
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "numbering_presentation",
+        "numeral"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "coding",
+      "title": "Exact numerical syntax",
+      "workflow_ids": [
+        "proof_code_roundtrip"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "primitive_recursive",
+        "recursively_enumerable"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "computability",
+      "title": "Effectiveness and recursive functions",
+      "workflow_ids": [
+        "proof_code_roundtrip"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "numeralwise_function_representation",
+        "fixed_point_sentence"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "diagonalization",
+      "title": "Representability and fixed points",
+      "workflow_ids": [
+        "diagonal_fixedpoint"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "one_consistency_convention"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "incompleteness_first",
+      "title": "Goedel I and Rosser",
+      "workflow_ids": [
+        "predicate_identity"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "consistency_formula",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "incompleteness_second",
+      "title": "Predicate-specific Goedel II",
+      "workflow_ids": [
+        "predicate_identity"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "object_meta_level",
+        "relative_consistency",
+        "theory_interpretation",
+        "conservative_extension",
+        "delta_zero",
+        "sigma_one",
+        "pi_one"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "metatheory",
+      "title": "Levels, hierarchy and relative strength",
+      "workflow_ids": [
+        "typed_catalogue_chain"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "proof_relation",
+        "provability_formula",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "provability",
+      "title": "Proof predicates and derivability",
+      "workflow_ids": [
+        "predicate_identity"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "kripke_frame",
+        "modal_box",
+        "gl_logic"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "provability_logic",
+      "title": "Finite modal semantics and GL",
+      "workflow_ids": [
+        "modal_frames"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "signature",
+        "term",
+        "formula",
+        "sentence",
+        "capture_avoiding_substitution"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "syntax",
+      "title": "Syntax and binding",
+      "workflow_ids": [
+        "finite_truth"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "q_theory",
+        "pa_induction",
+        "axiom_schema"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "theories",
+      "title": "Arithmetic theories and schemas",
+      "workflow_ids": [
+        "arithmetic_axioms",
+        "proof_scopes"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "finite_structure",
+        "satisfaction",
+        "semantic_entailment"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "truth",
+      "title": "Truth, satisfaction and definability",
+      "workflow_ids": [
+        "finite_truth"
+      ]
+    },
+    {
+      "coverage_note": "Listed definitions were independently checked. This does not certify all topic results, implementation coverage, workflows or formal verification.",
+      "coverage_status": "DEFINITIONS_REVIEWED_WORKFLOWS_PENDING",
+      "definition_ids": [
+        "essential_undecidability",
+        "bounded_search"
+      ],
+      "formal_verification_status": "NOT_REPLAYED",
+      "id": "undecidability",
+      "title": "Limits of effective methods",
+      "workflow_ids": [
+        "typed_catalogue_chain"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+# Action commits checked against official releases on 2026-11-05.
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: vars.RELEASE_AUTHORIZED == 'true'
+    name: Build and verify release distributions
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Verify release tag matches package version
+        shell: bash
+        run: |
+          package_version="$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          tag_version="${GITHUB_REF_NAME#v}"
+          if [[ "$tag_version" != "$package_version" ]]; then
+            echo "Release tag $GITHUB_REF_NAME does not match package version $package_version" >&2
+            exit 1
+          fi
+
+      - name: Install verification and build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ".[test,build]" "ruff>=0.11,<1"
+
+      - name: Validate public source boundary
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+          PYTHONPATH: src
+        run: python tools/verify_source_tree.py
+
+      - name: Run static quality checks
+        run: python -m ruff check --no-cache src tests tools examples
+
+      - name: Run automated tests
+        timeout-minutes: 3
+        run: python -m pytest
+
+      - name: Build and validate distributions
+        run: |
+          python -m build
+          python -m twine check dist/*
+          python tools/validate_distribution.py dist
+          cd dist
+          sha256sum *.whl *.tar.gz > SHA256SUMS
+
+      - name: Smoke-test installed wheel
+        timeout-minutes: 2
+        run: |
+          python -m venv ${RUNNER_TEMP}/library-wheel-smoke
+          ${RUNNER_TEMP}/library-wheel-smoke/bin/python -m pip install dist/*.whl
+          mkdir -p ${RUNNER_TEMP}/library-wheel-cwd
+          cp tools/smoke_installed.py ${RUNNER_TEMP}/library-wheel-cwd/smoke_installed.py
+          cd ${RUNNER_TEMP}/library-wheel-cwd
+          env -u PYTHONPATH ${RUNNER_TEMP}/library-wheel-smoke/bin/python -I smoke_installed.py
+
+      - name: Smoke-test installed source distribution
+        timeout-minutes: 2
+        run: |
+          python -m venv ${RUNNER_TEMP}/library-sdist-smoke
+          ${RUNNER_TEMP}/library-sdist-smoke/bin/python -m pip install dist/*.tar.gz
+          mkdir -p ${RUNNER_TEMP}/library-sdist-cwd
+          cp tools/smoke_installed.py ${RUNNER_TEMP}/library-sdist-cwd/smoke_installed.py
+          cd ${RUNNER_TEMP}/library-sdist-cwd
+          env -u PYTHONPATH ${RUNNER_TEMP}/library-sdist-smoke/bin/python -I smoke_installed.py
+
+      - name: Upload package distributions
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: python-package-distributions
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload release checksums
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: release-checksums
+          path: dist/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Publish verified distributions to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: pypi
+      url: https://pypi.org/p/goedel
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Download verified distributions
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: python-package-distributions
+          path: dist
+
+      - name: Publish distributions with Trusted Publishing
+        # Re-verify the current official release/SHA before materializing this template.
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086
+
+  release-assets:
+    name: Attach verified distributions to GitHub release
+    needs: [build, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download verified distributions
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: python-package-distributions
+          path: release-assets
+
+      - name: Download release checksums
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: release-checksums
+          path: release-assets
+
+      - name: Attach distributions and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" release-assets/* --repo "$GITHUB_REPOSITORY" --clobber

@@ -1,0 +1,127 @@
+# Action commits checked against official releases on 2026-11-05.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        include:
+          - os: windows-latest
+            python-version: "3.14"
+          - os: macos-latest
+            python-version: "3.14"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]" "ruff>=0.11,<1"
+
+      - name: Validate source and external-publication boundary
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+          PYTHONPATH: src
+        run: python tools/verify_source_tree.py
+
+      - name: Run static quality checks
+        run: python -m ruff check --no-cache src tests tools examples
+
+      - name: Run automated tests
+        timeout-minutes: 3
+        run: python -m pytest --capture=sys
+
+      - name: Audit public API
+        run: python tools/api_audit.py
+
+  distribution:
+    name: Build and inspect distributions
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Set up build Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ".[build]"
+
+      - name: Build wheel and source distribution
+        run: python -m build
+
+      - name: Validate package metadata and archive boundary
+        run: |
+          python -m twine check dist/*
+          python tools/validate_distribution.py dist
+          cd dist
+          sha256sum *.whl *.tar.gz > SHA256SUMS
+
+      - name: Smoke-test installed wheel
+        timeout-minutes: 2
+        run: |
+          python -m venv ${RUNNER_TEMP}/library-wheel-smoke
+          ${RUNNER_TEMP}/library-wheel-smoke/bin/python -m pip install dist/*.whl
+          mkdir -p ${RUNNER_TEMP}/library-wheel-cwd
+          cp tools/smoke_installed.py ${RUNNER_TEMP}/library-wheel-cwd/smoke_installed.py
+          cd ${RUNNER_TEMP}/library-wheel-cwd
+          env -u PYTHONPATH ${RUNNER_TEMP}/library-wheel-smoke/bin/python -I smoke_installed.py
+
+      - name: Smoke-test installed source distribution
+        timeout-minutes: 2
+        run: |
+          python -m venv ${RUNNER_TEMP}/library-sdist-smoke
+          ${RUNNER_TEMP}/library-sdist-smoke/bin/python -m pip install dist/*.tar.gz
+          mkdir -p ${RUNNER_TEMP}/library-sdist-cwd
+          cp tools/smoke_installed.py ${RUNNER_TEMP}/library-sdist-cwd/smoke_installed.py
+          cd ${RUNNER_TEMP}/library-sdist-cwd
+          env -u PYTHONPATH ${RUNNER_TEMP}/library-sdist-smoke/bin/python -I smoke_installed.py
+
+      - name: Upload verified distributions
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: goedel-${{ github.sha }}
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 14

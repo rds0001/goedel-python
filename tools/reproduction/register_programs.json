@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "machine_id": "goedel-arithmetic-register-v1",
+  "status": "COMPILER_SPECIMENS_NOT_SUBSTITUTION_OR_PA_CHECKER",
+  "programs": [
+    {
+      "id": "add_specimen",
+      "version": "1.0",
+      "register_count": 3,
+      "inputs": [0, 1],
+      "output": 2,
+      "entry": 0,
+      "instructions": [
+        {"op": "ADD", "dst": 2, "left": 0, "right": 1, "next": 1},
+        {"op": "HALT"}
+      ]
+    },
+    {
+      "id": "division_specimen",
+      "version": "1.0",
+      "register_count": 4,
+      "inputs": [0, 1],
+      "output": 3,
+      "entry": 0,
+      "instructions": [
+        {"op": "DIVMOD", "quotient": 2, "remainder": 3, "numerator": 0, "denominator": 1, "next": 1},
+        {"op": "HALT"}
+      ]
+    }
+  ]
+}

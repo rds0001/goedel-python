@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:goedel:expr:1.1",
+  "title": "goedel syntax node",
+  "$ref": "#/$defs/node",
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": [
+        "args",
+        "kind",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "var",
+            "const",
+            "func",
+            "pred",
+            "eq",
+            "not",
+            "and",
+            "or",
+            "implies",
+            "forall",
+            "exists",
+            "bottom",
+            "num"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "args": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        }
+      },
+      "description": "Structural wire envelope. Native validation additionally enforces arity, term/formula sorts, binding name rules, joint signature and resource limits.",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "num"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "name": {
+                "pattern": "^(0|[1-9][0-9]*)$"
+              },
+              "args": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "name": {
+                "maxLength": 64,
+                "pattern": "^([A-Za-z][A-Za-z0-9_]*)?$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

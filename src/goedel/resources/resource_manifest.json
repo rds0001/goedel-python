@@ -1,0 +1,15 @@
+{
+  "files": {
+    "catalogue.json": "171eec45c92450af1187ff44b736fe677798b7de912b5d24f45a9d56cbcd6871",
+    "catalogue_review.json": "5822941411a624fc9d046e8c43d16737e819b23720c76a8c78a7066a613b301b",
+    "expr.schema.json": "52c9640867b14d704db268131ac495da4e6ecd10cccfbeb0b796f3f341623e2c",
+    "inference_rules.json": "4e33132b0facca4f5ae991b2bd8d32dacdb30dff421c9ff4de52a2ea6797cfac",
+    "pa_hbl_review.json": "35072dcfa55c522f4cd33266439b16cc20cea0d6dc50dfaa990be53c1996e35a",
+    "pa_proof_representation.json": "1f628edb87b8e111edeef371515cb999fd3af28fe45ba348a35813cc4ffb8331",
+    "pa_proof_review.json": "3fdb33e9a9beaf35aee1fa491830f00dcb3b7fdee90e327bc1e30b2a996b6151",
+    "provability_representation.json": "faae76a30fa713fb151a6ca8cb535c3aeafbd0fcdd2c80f1e4fb6d09a3e2a607",
+    "reference_cases.json": "956bf8e480fa950ee3a6bc3f751086cc0e2b923f342d1a9c15794eff8bacce28",
+    "substitution_representation.json": "5c724bd85e01c259517878a2fdf098a8e62697f320b58d330153d1074161c187"
+  },
+  "schema_version": "1.0"
+}

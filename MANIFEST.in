@@ -1,0 +1,15 @@
+include CHANGELOG.md CITATION.cff CONTRIBUTING.md DISCLAIMER.md LICENSE NOTICE README.md SECURITY.md THIRD_PARTY_NOTICES.md
+recursive-include docs *.md
+recursive-include examples *.py *.md
+recursive-include src/goedel/resources *
+recursive-include tests *.py
+recursive-include tools *.py
+recursive-include tools/reproduction *.py *.md *.json
+global-exclude *.py[cod] __pycache__ .DS_Store
+prune scaffold
+prune Unterlagen
+prune intern
+prune archiv
+global-exclude *.pdf *.doc *.docx *.odt *.zip
+prune goedel-scaffold
+prune transformation

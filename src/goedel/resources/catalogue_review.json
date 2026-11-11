@@ -1,0 +1,593 @@
+{
+  "catalogue_sha256": "171eec45c92450af1187ff44b736fe677798b7de912b5d24f45a9d56cbcd6871",
+  "date": "2026-11-05",
+  "formal_kernel_replay": false,
+  "independence": "Reviewer did not author the new catalogue definitions or inference rules. Definitions and arguments were compared with the cited source passages and separately reasoned through.",
+  "inference_rules_sha256": "4e33132b0facca4f5ae991b2bd8d32dacdb30dff421c9ff4de52a2ea6797cfac",
+  "limitations": [
+    "Definition review is not theorem proving.",
+    "The source formalizations were inspected through their papers, not replayed in Coq or HOL Light.",
+    "Package-specific syntax/numbering conventions are explicitly labelled; these sources do not verify the package implementation.",
+    "Topic coverage is limited to the listed definitions; executable workflow gates remain separate.",
+    "No context assumptions such as consistency or soundness have been established for a supplied theory."
+  ],
+  "records": [
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "axiom_schema",
+      "kind": "DEFINITION",
+      "original_sha256": "a9852cc3ccd8918615ccf50c1c1d08f8473ae38567db3329f54b20c2c73c285c",
+      "rationale": "The induction family supplies a concrete schema; no finite enumeration is asserted.",
+      "reviewed_sha256": "18c1274791eee8ff88bac0a707dbd3294f3e9f05c9ead90c598c7527f01545fa",
+      "source_refs": [
+        {
+          "locator": "Definition int.6: a parameterized induction family; general schema convention",
+          "source_id": "olp_incompleteness"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "bounded_search",
+      "kind": "DEFINITION",
+      "original_sha256": "53d8f552aae1113a911a3f71d4fbe2eb5526b194add74f169c3cbbbdb659d150",
+      "rationale": "Operational definition reviewed separately: a finite search omits arbitrarily long candidate proofs.",
+      "reviewed_sha256": "6768383e714c69ad800b328d0eab1d7d036d364533dcae4481891260a6e6dafe",
+      "source_refs": [
+        {
+          "locator": "Sections 4 and 6; library operational distinction",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "capture_avoiding_substitution",
+      "kind": "DEFINITION",
+      "original_sha256": "783d03b50553b9739254874a75acc22b83b579faef9decb160538a6db43154e3",
+      "rationale": "Rebinding prevents free variables of the replacement from becoming bound.",
+      "reviewed_sha256": "ac79862e6a9f204b965fd9798d59f3069751c0a48bafc90512eac79df0c18a20",
+      "source_refs": [
+        {
+          "locator": "Section 2.4 and Section 5.1, rebinding during substitution",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "conservative_extension",
+      "kind": "DEFINITION",
+      "original_sha256": "36e23f0d975262b2e4ac267a9351d44b0d3297e1aa20ab87404e33907ebe1e96",
+      "rationale": "Original-language consequences, rather than mere consistency preservation, define conservativity.",
+      "reviewed_sha256": "e622298ddac94d66ef9f48c73126b6864e70cf6d7d94af6e16380c229fd7a813",
+      "source_refs": [
+        {
+          "locator": "Section 2.7, Theorem 27A and 27D, no additional original-language consequences",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "consistency_formula",
+      "kind": "DEFINITION",
+      "original_sha256": "30607069e15015c5b588600b9cee479c2fdf4b64472a18f5ba483d686438b701",
+      "rationale": "Predicate and contradiction identity are essential; only the displayed Con_Pr is meant.",
+      "reviewed_sha256": "b8283603d4451c42fbb15bfdd3c092dfd1b050f61fd65743a3c946da71bec554",
+      "source_refs": [
+        {
+          "locator": "Introduction; Section 2.1 consistency formulations",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "d1",
+      "kind": "DEFINITION",
+      "original_sha256": "cf527c5f8f3829d975a74d5074226c61c920a5877e997b44be6265c52e884ca9",
+      "rationale": "Checked against the local D1 schema, with numeral quotation explicit.",
+      "reviewed_sha256": "4f90ce08bfe1b0e6525c82c4b5b4b42352ec4f8f1f35b80fe3e7f07f9baf917c",
+      "source_refs": [
+        {
+          "locator": "Introduction, D1",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "d2",
+      "kind": "DEFINITION",
+      "original_sha256": "aeccd51c2d4497d2ea63c12c378d3d8332fa1a957fb8912d6319c67f2627a509",
+      "rationale": "Corrected numbers to numeral terms; all sentence instances remain required.",
+      "reviewed_sha256": "eeb5fd49dbc5d78c3bf8b5c6f4588f429f790cee128648388ff9199d07e7527a",
+      "source_refs": [
+        {
+          "locator": "Introduction, D2",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "d3",
+      "kind": "DEFINITION",
+      "original_sha256": "d13062df14580abdb99f2dcf2db83c96d7f7ed37e462a3e4ea51fca096ebb317",
+      "rationale": "Corrected both nested quotation levels; D3 concerns the same predicate.",
+      "reviewed_sha256": "e18b90ecce0e80d840a9d6814b114a24f0fb3736dd259b70c384208ae1fd8a19",
+      "source_refs": [
+        {
+          "locator": "Introduction, D3",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "delta_zero",
+      "kind": "DEFINITION",
+      "original_sha256": "6513a69643d06fd0296b1f7cdd1aef365541bd113e039cf699eac744eb3dfdd9",
+      "rationale": "Corrected the source section and added the bound-variable exclusion.",
+      "reviewed_sha256": "843b66261c7e890258c3730967d989f828304b91cc56460518569c86a449bfc7",
+      "source_refs": [
+        {
+          "locator": "Section 3.3, Theorem 33I, pp.210-211; library syntactic bounded-formula convention",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "essential_undecidability",
+      "kind": "DEFINITION",
+      "original_sha256": "6d4e12a3177ac4a23622441be1e62bbb51f791af1d0ff99f8ee2bde1dc4f4271",
+      "rationale": "The quantifier ranges over consistent extensions; effective axiomatizability is not added.",
+      "reviewed_sha256": "b2ab3c9f3fbf49d5c97ab575994426e31303cb9e9c61cc351f301f01ae965076",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, Theorem 35C, hereditary undecidability for consistent extensions",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "finite_structure",
+      "kind": "DEFINITION",
+      "original_sha256": "dbeb80b41144545c5b116a6cf0d0ff7bd56e331cf9cb92bdc7246125b665770e",
+      "rationale": "Finite carrier and complete interpretations restrict the usual structure definition.",
+      "reviewed_sha256": "93dfb1e039e31d97751547e7d222e39452c74b6e4121a0ca6e67949dc7d0706a",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "fixed_point_sentence",
+      "kind": "DEFINITION",
+      "original_sha256": "8909b6c0c55687337002f58102d93df7777c2c84a5a6f689a1b90b09541df07e",
+      "rationale": "Provable equivalence is correctly separated from textual self-identity.",
+      "reviewed_sha256": "89b92aac1de0be576ac865fc821fccb3c396aebfa364f2bdf4f7010fb478c16c",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, fixed-point construction",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "formula",
+      "kind": "DEFINITION",
+      "original_sha256": "80e581e2bb76b2df7f77a62a3c7bf0bff472927e445b6a90bce4826a3ac4e986",
+      "rationale": "Inductive formation and atomic equality are consistent with the cited syntax.",
+      "reviewed_sha256": "a21ee598534c953a97492a41bc1fc9a833490bc39ee483c50136090d9103cda8",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "gl_logic",
+      "kind": "DEFINITION",
+      "original_sha256": "a40c810ab65393bc494c699bdc2595bfa9f314a63084aa24f94cb69a53f06415",
+      "rationale": "Added least-logic and closure requirements; corrected the calculus locator.",
+      "reviewed_sha256": "18a81de54dad1388e2c3fe33ef7c0d577fe3e65e2cb9613b58c534f8c3e75ebe",
+      "source_refs": [
+        {
+          "locator": "Section 3, axiomatic calculus K plus GL and necessitation",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "kripke_frame",
+      "kind": "DEFINITION",
+      "original_sha256": "90c534f142260d77952b28edf8d67a4d770dd64d50ecbf32ba1fd4d6518499d0",
+      "rationale": "Added nonemptiness; model valuations are a separate component.",
+      "reviewed_sha256": "7cdbc07d764767bdf7be63084a22e60b018e5156bdd2b9e5aabd049ae489bc8a",
+      "source_refs": [
+        {
+          "locator": "Section 2.1, relational models and nonempty frames",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "modal_box",
+      "kind": "DEFINITION",
+      "original_sha256": "688208ee1665c073bef7ec5759def3f22cc95269e2aeab8699b046dc1d8d3337",
+      "rationale": "Universal successor quantification entails vacuous truth at terminal worlds.",
+      "reviewed_sha256": "662f941418921bdda1515ee02138514c11b7e733376ad77e8baca854cf442dab",
+      "source_refs": [
+        {
+          "locator": "Section 2.1, recursive forcing relation",
+          "source_id": "maggesi_perini_brogi_2023"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "numbering_presentation",
+      "kind": "DEFINITION",
+      "original_sha256": "8e4cef97421a9e46db28c0408645d32fac8944354e2b6355557d3c307313c983",
+      "rationale": "Reviewed as a package convention; injectivity is on presentations, not denotations.",
+      "reviewed_sha256": "ccbad64360dbe741baf792db523b324264e90d5fb2b9a78f31a5c405cf195dda",
+      "source_refs": [
+        {
+          "locator": "Section art.1; presentation sensitivity is a library convention, not a claim about its specific coding",
+          "source_id": "olp_arithmetization"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "numeral",
+      "kind": "DEFINITION",
+      "original_sha256": "27c32116635faa4969e3cc23189821b8ceafc28e1f462045beb2021939c0767d",
+      "rationale": "Reviewed the standard meaning and labelled binary Horner as a separate package choice.",
+      "reviewed_sha256": "fd46d638ed57ea58813f830f32903177728cbc63eea040028f86767bde82ed80",
+      "source_refs": [
+        {
+          "locator": "Section 2.8, natToTerm; binary Horner is the library convention replacing unary notation",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "numeralwise_function_representation",
+      "kind": "DEFINITION",
+      "original_sha256": "94431f2f0ea13c936af8f308adab6f19fb8397ce12b16c1551546d9c2c13d2c6",
+      "rationale": "Specified total function, input arity and strong numeralwise convention.",
+      "reviewed_sha256": "60858d1a47f5fbf98710adcea94212e929a7d590f2a79e31dbaf01be8406f9b6",
+      "source_refs": [
+        {
+          "locator": "Sections 3.3 and 3.6",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "object_meta_level",
+      "kind": "DEFINITION",
+      "original_sha256": "356651cd66f7c355e94181560e818f7f4d91e6afb93a18cdfb3736f6de2a3471",
+      "rationale": "Clarified that arithmetization does not collapse object and metatheoretic assertions.",
+      "reviewed_sha256": "1b3ac020e9a71407f26730d9c328f01860dcfa66bbadd522cd6a1081235ddc4c",
+      "source_refs": [
+        {
+          "locator": "Sections 2.4 and 3.7",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "one_consistency_convention",
+      "kind": "DEFINITION",
+      "original_sha256": "ec37aeee01ea8b71cbcc71b5041e3d7f3907a2c88bffa87c2941f5f94f21b931",
+      "rationale": "This is a declared naming convention; no universal equivalence of competing definitions is claimed.",
+      "reviewed_sha256": "cba617fb3cc5823411467c42f72a15861c26b003e5d93d891e191957b0de02d8",
+      "source_refs": [
+        {
+          "locator": "Introduction and Definition 2.1; Sigma1-soundness is explicitly the library convention for one-consistency",
+          "source_id": "salehi_2022_omega"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "pa_induction",
+      "kind": "DEFINITION",
+      "original_sha256": "25fd09b03cfc22300fe53673dca83ce1cf87334f1556f8a8e590fc4a27ae00da",
+      "rationale": "Parameter closure agrees with both independently inspected presentations.",
+      "reviewed_sha256": "5d1bb4a18a1e678184a28c09bd5df6de92edc435028e37bf297542302c783fc7",
+      "source_refs": [
+        {
+          "locator": "Definition int.6, parameter closure",
+          "source_id": "olp_incompleteness"
+        },
+        {
+          "locator": "Section 2.8, displayed PA induction schema",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "pi_one",
+      "kind": "DEFINITION",
+      "original_sha256": "16021133e20fbd5a4db25b3be6b48d9848ee0bda9a53142b653be67ea7c81b13",
+      "rationale": "Made the syntactic normal-form convention explicit, without an automatic equivalence oracle.",
+      "reviewed_sha256": "b760e97787feab97a5bba1a5f63a92766372e4fd26cf93eb7c8abf64cb90cf44",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, arithmetical hierarchy, pp.242-243; library syntactic normal-form convention",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "primitive_recursive",
+      "kind": "DEFINITION",
+      "original_sha256": "087bea7edff30bab469b3949df8492620b7047a9cc550fcb9f44b3f04ec2957f",
+      "rationale": "The cited PrimRec constructors supply exactly the stated closure operations.",
+      "reviewed_sha256": "a162e62a473b430609859d0ac3aa1a319d9a5460707cade3225594599776517d",
+      "source_refs": [
+        {
+          "locator": "Section 5, constructors of PrimRec",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "proof_relation",
+      "kind": "DEFINITION",
+      "original_sha256": "1614ac61299f11d9758061d5f6d0efa164974d191fb97538e1f2cc719b1fffed",
+      "rationale": "Removed ambiguity between arbitrary finite proofs and resource-bounded API acceptance.",
+      "reviewed_sha256": "226a7d40a4fa33c17741c632e8f30449c2019cdbd6f6d87ad364d4e654c558fe",
+      "source_refs": [
+        {
+          "locator": "Sections art.6-art.8; Propositions art.17, art.24, art.28",
+          "source_id": "olp_arithmetization"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "provability_formula",
+      "kind": "DEFINITION",
+      "original_sha256": "89ce670e1b3e8c5f9e40eea005af51bf14bbee22c29e0409a2eae79e3b03363b",
+      "rationale": "Existential proof quantification is consistent with a fixed proof representation.",
+      "reviewed_sha256": "4bb8bb388d51fceb31777970c4bd47b3898a7a3c9eaaf765278709ca7707b4c2",
+      "source_refs": [
+        {
+          "locator": "Introduction and Section 2.1",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "q_theory",
+      "kind": "DEFINITION",
+      "original_sha256": "a00daa0c8a1ffb57aed8cc5d08fd5cefc27e13fd375ddfb0e09a948e22812a33",
+      "rationale": "Replaced the unsupported NN attribution; matched the seven-axiom order-free reduct.",
+      "reviewed_sha256": "cb58f494b9b49149bab6b2f25f35869fe1e01100b6a25b0db57e27d76bf8d5c2",
+      "source_refs": [
+        {
+          "locator": "Definition int.5: Q1-Q7 in the reduct without the separately definable order symbol; Q8 is a definition",
+          "source_id": "olp_incompleteness"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "recursively_enumerable",
+      "kind": "DEFINITION",
+      "original_sha256": "d939340622e0f7f045064065b1537c78c4a22aac53fe319d143b015747be5317",
+      "rationale": "Enumeration does not yield a complementary decision procedure.",
+      "reviewed_sha256": "62122b7d12e49239cf9f722ea9309722ed9e0e76664756ba3563b96a1968ca11",
+      "source_refs": [
+        {
+          "locator": "Section 3.5, Theorem 35E and Lemma 35G",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "relative_consistency",
+      "kind": "DEFINITION",
+      "original_sha256": "dd44f69ee4936ec3ce433bd7fdd91846ad37119df53eac9cce3a33a852b6fa86",
+      "rationale": "The direction and ambient metatheory remain explicit, without asserting consistency outright.",
+      "reviewed_sha256": "ee582d246aed59776d0a58e78a9b012ce7e166c01aa42129a54f19c96d37c70f",
+      "source_refs": [
+        {
+          "locator": "Section 2.7, interpretation and model translation; conditional metatheoretic convention",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "satisfaction",
+      "kind": "DEFINITION",
+      "original_sha256": "22bc92a2e862a386eb932c918cf58ff4872ade24608dbef3d4a781c785d985c5",
+      "rationale": "The three components structure, assignment and formula remain distinct.",
+      "reviewed_sha256": "d738b47610a0d67e58a574755a7c4609d6ee7c4663bcf2475c8fa0840cedd284",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "semantic_entailment",
+      "kind": "DEFINITION",
+      "original_sha256": "fefaadc634ce57829b54da44b8b6b30d0be84a6dfb0e80b67f85a2350cc4c3cf",
+      "rationale": "Specified sentences and separately declared local consequence for open formulas.",
+      "reviewed_sha256": "a10d4b68b44b491e6b6abade57edb4d0ece9a5efe4f7e321226e7454ecb0ed22",
+      "source_refs": [
+        {
+          "locator": "Definition syn.64 (sentences); local open-formula extension explicitly declared",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "sentence",
+      "kind": "DEFINITION",
+      "original_sha256": "7fd26e7ba7fddec70f762ab081bd6e28075835f5367794badb9654ca36234e76",
+      "rationale": "The free-variable criterion agrees with the semantics definition.",
+      "reviewed_sha256": "d5a7b355aac355a8aef5df1f46a3c74d5fb6f204b43c1b05a1c5bd1913710062",
+      "source_refs": [
+        {
+          "locator": "syn.1",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "sigma_one",
+      "kind": "DEFINITION",
+      "original_sha256": "2a4de1e233f2469bd5a3e8f82b5e4f36559acb149169f041d0d2d366622f2de1",
+      "rationale": "The syntactic existential-prefix convention is explicit; equivalence needs separate evidence.",
+      "reviewed_sha256": "1ea03b76dc75a9ba4b86d2d36b32d4687cd50fcd716fc70646fd8c49a3131fca",
+      "source_refs": [
+        {
+          "locator": "Section 5, existential unbounded quantifiers in represented arithmetic relations; library syntactic normal-form convention",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "signature",
+      "kind": "DEFINITION",
+      "original_sha256": "32c2686eec580bf12f4d0b51301e42b1e1b7e5a1bbda2f0a799e92db7b9c85f7",
+      "rationale": "Arity and logical equality remain fixed rather than inferred per occurrence.",
+      "reviewed_sha256": "3c4722712c658c71ecbc060b8106055e0983126ce93eb292850497ee04cd4deb",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "term",
+      "kind": "DEFINITION",
+      "original_sha256": "0f40f42fa86395d03f7513c6eae97871b8880c6b2d262cab331279c06f3c4d09",
+      "rationale": "Variable, constant and function cases exhaust the stated inductive syntax.",
+      "reviewed_sha256": "1b05d049aad57c8de42c70d40d5557538c80bd61435f39f079116fac4d063932",
+      "source_refs": [
+        {
+          "locator": "syn.2",
+          "source_id": "olp_syntax"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED_WITH_PRECISION_CORRECTIONS",
+      "id": "theory_interpretation",
+      "kind": "DEFINITION",
+      "original_sha256": "afc96cb41104817d60fab32b098b90dc3c798ec2099ffcc9e2a2f67cdbfb2b41",
+      "rationale": "Added nonempty domain and logical/function/equality preservation obligations.",
+      "reviewed_sha256": "c9a9c010a9943712476189a6ebd35736952b340c41d6ce7dc6a0cda6626e0701",
+      "source_refs": [
+        {
+          "locator": "Section 2.7",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "omega_to_sigma1",
+      "kind": "INFERENCE_RULE",
+      "rationale": "Independent argument: a false existential bounded sentence has all its negated numeral instances provable in PA; its provability contradicts omega-consistency. This is a conditional metatheorem, not a consistency test.",
+      "reviewed_sha256": "f4d00486629e05ad6fe81acda5af2c4932d58402c6a68d5c2e22b64bd7b65ef9",
+      "source_refs": [
+        {
+          "locator": "Section2 Definition2.1 and the omega-consistency hierarchy",
+          "source_id": "salehi_2022_omega"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "sigma1_to_consistent",
+      "kind": "INFERENCE_RULE",
+      "rationale": "Independent argument: classical inconsistency entails a false Sigma1 sentence. The conclusion concerns the declared theory and standard arithmetic interpretation.",
+      "reviewed_sha256": "e388c432c3f1a7707ee9d431c1b62a8546b91fe2c3bcfc4d973ead43a46b4236",
+      "source_refs": [
+        {
+          "locator": "Section2 Definition2.1",
+          "source_id": "salehi_2022_omega"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "rosser_incomplete",
+      "kind": "INFERENCE_RULE",
+      "rationale": "The decidable-axiom PA specialization supplies an undecided sentence. PA interprets the displayed NN arithmetic; recursive axiom membership is numeralwise representable. No language-general formalization replay is claimed.",
+      "reviewed_sha256": "bf94213dd887d99a9839bf5891dc755f167921f8bf66ef3c9fd5d5edd6988399",
+      "source_refs": [
+        {
+          "locator": "Section6.1, with the library's separately reviewed classical decidable-axiom PA specialization",
+          "source_id": "oconnor_2006"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "complete_effective_to_decidable",
+      "kind": "INFERENCE_RULE",
+      "rationale": "Independent dovetailing argument extends the cited recursive-axiom presentation to effectively enumerable axioms via witnessed enumerations. Consistency chooses exactly one branch; completeness forces one to terminate.",
+      "reviewed_sha256": "de84695572fe2a38c3c74684defc0aa63881226c28a8716c86afc260b1fcab7c",
+      "source_refs": [
+        {
+          "locator": "Section3.4 catalogitem21 printedp233",
+          "source_id": "enderton_2001"
+        }
+      ]
+    },
+    {
+      "decision": "ACCEPTED",
+      "id": "hbl_second_incompleteness",
+      "kind": "INFERENCE_RULE",
+      "rationale": "Theorem 2.7 and the Loeb corollary use the same D1-D3 predicate and its chosen contradiction. The additional runtime identity guard is essential; no other consistency formula is inferred.",
+      "reviewed_sha256": "ea81f80aebc181a1dbfc8208f1fd134816a0d71fdffe63bcb18c2bb471b361b2",
+      "source_refs": [
+        {
+          "locator": "Introduction; Section2.1 Theorem2.7",
+          "source_id": "kurahashi_2020"
+        }
+      ]
+    }
+  ],
+  "review_id": "catalogue-substantial-1-independent-2026-11-05",
+  "reviewer_role": "independent_mathematical_reviewer",
+  "schema_version": "1.0",
+  "status": "INDEPENDENTLY_CHECKED"
+}

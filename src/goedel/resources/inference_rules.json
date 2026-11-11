@@ -1,0 +1,138 @@
+{
+  "level": "META",
+  "limitations": [
+    "All context declarations remain assumptions.",
+    "Rule replay is catalogue inference, not a mathematical proof of the premises.",
+    "REQUIRES graph edges are not inference rules.",
+    "Predicate-specific rules require an independently reviewed exact representation identity."
+  ],
+  "rules": [
+    {
+      "active": true,
+      "argument": "If an existential bounded sentence is false in N, each numeral instance of the negated bounded matrix is provable in PA. Proving the false existential in an omega-consistent extension would therefore violate omega-consistency.",
+      "conclusion": {
+        "property": "sigma1_sound",
+        "value": true
+      },
+      "id": "omega_to_sigma1",
+      "premises": {
+        "classical_first_order": true,
+        "extends_pa": true,
+        "omega_consistent": true
+      },
+      "requires_predicate": false,
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section2 Definition2.1 and the omega-consistency hierarchy",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "active": true,
+      "argument": "An inconsistent classical arithmetic theory proves every sentence, including a false Sigma1 sentence. Contraposition gives the stated conditional implication.",
+      "conclusion": {
+        "property": "consistent",
+        "value": true
+      },
+      "id": "sigma1_to_consistent",
+      "premises": {
+        "classical_first_order": true,
+        "extends_pa": true,
+        "sigma1_sound": true
+      },
+      "requires_predicate": false,
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section2 Definition2.1",
+          "source_id": "salehi_2022_omega"
+        }
+      ],
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "active": true,
+      "argument": "The reviewed Rosser variant supplies a sentence with neither it nor its negation derivable. This refutes syntactic completeness under precisely the same declared hypotheses.",
+      "conclusion": {
+        "property": "syntactically_complete",
+        "value": false
+      },
+      "id": "rosser_incomplete",
+      "premises": {
+        "classical_first_order": true,
+        "consistent": true,
+        "decidable_axiom_set": true,
+        "extends_pa": true,
+        "standard_arithmetization": true
+      },
+      "requires_predicate": false,
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section6.1, with the library's separately reviewed classical decidable-axiom PA specialization",
+          "source_id": "oconnor_2006"
+        }
+      ],
+      "statement_id": "rosser",
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "active": true,
+      "argument": "Interleave proof enumeration for A and not A. Completeness guarantees termination and consistency prevents both answers.",
+      "conclusion": {
+        "property": "theorem_set_decidable",
+        "value": true
+      },
+      "id": "complete_effective_to_decidable",
+      "premises": {
+        "classical_first_order": true,
+        "consistent": true,
+        "effective_axiomatized": true,
+        "effective_language": true,
+        "syntactically_complete": true
+      },
+      "requires_predicate": false,
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Section3.4 catalogitem21 printedp233",
+          "source_id": "enderton_2001"
+        }
+      ],
+      "statement_id": "complete_effective_decidable",
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    },
+    {
+      "active": true,
+      "argument": "Apply the reviewed HBL/Loeb consistency corollary only to the bound, reviewed representation and its designated contradiction. This says unprovability of its Con_Pr, not falsity or inconsistency.",
+      "conclusion": {
+        "property": "proves_own_consistency",
+        "value": false
+      },
+      "id": "hbl_second_incompleteness",
+      "premises": {
+        "classical_first_order": true,
+        "consistent": true,
+        "diagonal_lemma_available": true,
+        "extends_pa": true,
+        "hbl_conditions": true,
+        "provability_predicate_fixed": true
+      },
+      "requires_predicate": true,
+      "review_status": "REVIEWED",
+      "source_refs": [
+        {
+          "locator": "Introduction; Section2.1 Theorem2.7",
+          "source_id": "kurahashi_2020"
+        }
+      ],
+      "statement_id": "godel_second_hbl",
+      "verification_status": "INDEPENDENTLY_CHECKED"
+    }
+  ],
+  "schema_version": "1.0",
+  "version": "0.2.0"
+}

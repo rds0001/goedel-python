@@ -1,0 +1,40 @@
+{
+  "artifacts": {
+    "pa_proof": {
+      "arithmetic_sha256": "00712f13ebd539d4082ecd64dba420034901c84d0a4acae277d1735a9b33442d",
+      "bounded_sha256": "8d01de4220911c0905f10fac594753191bbd6280672bc6e95f9be37eb3315f69",
+      "program_sha256": "1d56c2d284c57619bcb667d2ebc2811cc2e89cdead029d2a3af5a2ac5727fe51"
+    },
+    "substitution": {
+      "arithmetic_sha256": "ac13f592b4c17c131157d6d6e010da2a7539a32403f2b6a7e7dd90398256bc9f",
+      "bounded_sha256": "6048bd3d331a7229826a38451d27a36b4b5675102db4687848aaed2eba7feb89",
+      "program_sha256": "a00f136ae431dd8da33c204e10beb68aca68ca0cedfc42cf916066d98896e3fa"
+    }
+  },
+  "files_sha256": {
+    "ARITHMETIC_CODING.md": "e1463019bbf2bba426a2cdefc4c3888a800af61e2344a90d13ed09e8a3718211",
+    "PA_HBL_ARGUMENT.md": "12911799ff70cabeace3637e4dfc4dfbbf21392f49322d6d2e4a9674f8130b20",
+    "PA_PROOF_PRESENTATION.md": "babd2b17f679906453d946b2daf847a04d99c47d031978493218f6deaa5add67",
+    "README.md": "f706a3a6f994d545dcafe6f1972bcf28c37556942d5e5dcd9b52105d76083ae6",
+    "arithmetization_programs.py": "0fbe854e7e4d42ac96636197f3c74a9641ce1d7533ded29ec4a221f268cd82e0",
+    "build.py": "ebf2b652303f615b805af36f32c85035de2d19191f9e4a659e71670a1237cd24",
+    "call_compiler_review.json": "f00c9c436bd16a53d37ca826eb9e3275428d5c113999724fe26ab71cf309190d",
+    "compile_register.py": "7c9f9ce14c505af1bb8f18f53a24c881b03b87fa3bcf7e07e44f2f6dc5f69cb2",
+    "compile_register_calls.py": "eb57d8e280eb8c179082e9304feff8c92872c484a350c372433b6e0a92b8223d",
+    "pa_hbl_review.json": "35072dcfa55c522f4cd33266439b16cc20cea0d6dc50dfaa990be53c1996e35a",
+    "pa_proof_programs.py": "f47150e3209eb315b4e51c00d3d263bb6bccfb778daddb581c7db90b80f7af59",
+    "pa_proof_review.json": "3fdb33e9a9beaf35aee1fa491830f00dcb3b7fdee90e327bc1e30b2a996b6151",
+    "pa_specialization.py": "74f2ddd0bf17c51e5faef780e1ac628d12b731af8979731d8fe3487f56315478",
+    "pa_transformations.py": "d1c35b96565198c4d3df264c699158f9189b45bf9529833f1fced3ab17f679ba",
+    "provability_representation.json": "faae76a30fa713fb151a6ca8cb535c3aeafbd0fcdd2c80f1e4fb6d09a3e2a607",
+    "register_programs.json": "3f0bb7ff7f00430dd0c4300c4c7a47a5c17a87abd4671b9f17260617a2450c07",
+    "representation_compiler.py": "35753ee09d54dc73e38c50209a8d7c85cdc2f8001d1e1f6b301f312ad3687b56",
+    "representation_spec.md": "478c22d8a0e96b6c85c61dd093cadae69f6ff281751b9c128cf0d9316f2b4004",
+    "substitution_review.json": "28c2f9f9cf1ae40575c6f8fbed827ca03cc3736a8461f3d14c1b68d1560b7d23"
+  },
+  "formal_kernel": false,
+  "generated_review_status": "UNREVIEWED_REBUILD",
+  "purpose": "Scientific source and formula reproduction; no automatic mathematical acceptance",
+  "python_version_minimum": "3.10",
+  "schema_version": "1.0"
+}
