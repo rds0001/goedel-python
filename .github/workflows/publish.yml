@@ -4,6 +4,13 @@ name: Publish to PyPI
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag to publish
+        required: true
+        default: v0.2.0
+        type: string
 
 permissions:
   contents: read
@@ -21,6 +28,7 @@ jobs:
       - name: Check out release tag
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
           persist-credentials: false
 
       - name: Set up Python
@@ -31,19 +39,21 @@ jobs:
           cache-dependency-path: pyproject.toml
 
       - name: Verify release tag matches package version
+        env:
+          RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
         shell: bash
         run: |
           package_version="$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
-          tag_version="${GITHUB_REF_NAME#v}"
+          tag_version="${RELEASE_TAG#v}"
           if [[ "$tag_version" != "$package_version" ]]; then
-            echo "Release tag $GITHUB_REF_NAME does not match package version $package_version" >&2
+            echo "Release tag $RELEASE_TAG does not match package version $package_version" >&2
             exit 1
           fi
 
       - name: Install verification and build dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install ".[test,build]" "ruff>=0.11,<1"
+          python -m pip install -e ".[test,build]" "ruff>=0.11,<1"
 
       - name: Validate public source boundary
         env:
@@ -150,4 +160,5 @@ jobs:
       - name: Attach distributions and checksums
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "$GITHUB_REF_NAME" release-assets/* --repo "$GITHUB_REPOSITORY" --clobber
+          RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
+        run: gh release upload "$RELEASE_TAG" release-assets/* --repo "$GITHUB_REPOSITORY" --clobber
