@@ -1,5 +1,7 @@
 # goedel
 
+[![CI](https://github.com/rds0001/goedel-python/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rds0001/goedel-python/actions/workflows/ci.yml)
+
 `goedel` is a native Python library for arithmetic syntax, finite first-order and
 modal semantics, exact Goedel numbering, explicit proof checking, bounded proof search and a qualified catalogue
 of metamathematical results. Python 3.10 or later is required. There are no runtime
